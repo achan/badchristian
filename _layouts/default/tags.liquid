@@ -1,0 +1,27 @@
+{% include 'default/header' %}
+
+<div class="container tags">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <h1 class="title">Tag Index</h1>
+
+      <ul class="tag-list">
+        {% for tag in tags %}
+          <li class="tag {{ tag.name }}">
+            <a href="/tags/{{ tag.name }}.html">#{{ tag.name }}</a>
+            <ul class="posts">
+              {% for post in tag.posts %}
+                <li class="post {{ post.slug }}">
+                  <a href="{{ post.permalink }}">{{ post.title }}</a>
+                  <date>{{ post.timestamp }}</date>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% include 'default/footer' %}

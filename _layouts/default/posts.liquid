@@ -1,0 +1,11 @@
+{% include 'default/header' %}
+
+{% for post in posts %}
+  {% if post.layout == 'tweet' %}
+    {% include 'tweet/post' %}
+  {% else %}
+    {% include 'default/post' %}
+  {% endif %}
+{% endfor %}
+
+{% include 'default/footer' %}
